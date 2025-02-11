@@ -20,8 +20,12 @@ namespace CheckoutKata;
 /*  Chris Notes:
  *  ------------
  *  This is fun so I will probably contine, some thoughts on what would happen next
- *  - 50% off all baskets on Fridays: This will expand the IDiscountRule in a way that requires "global" rules it will be interesting
-
+ *  - 50% off all baskets on Fridays: This will expand the IDiscountRuleRespository a little
+ *  -  as we dont have a "percentage" rule. We could of course fudge this in the test
+ * - The question is does the 50% "compound" i.e. to we apply it to all products, included already discounted ones, or just the none discounted
+ *    -- i.e. is ItemA, ItemA now 2.5 or 1.5
+ *    -- equally how does the system handle decimals, does it round to the nearest pound. round down etc :) 
+ *   
  */
 public class CheckoutUnitTests
 {
