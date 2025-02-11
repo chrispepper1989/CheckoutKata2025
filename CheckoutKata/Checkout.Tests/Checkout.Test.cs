@@ -33,10 +33,10 @@ public class CheckoutUnitTests
         _mockDiscountRuleRepository = A.Fake<IDiscountRuleRepository>();
         A.CallTo(() => _mockDiscountRuleRepository.GetBestMatchingRule("ItemA", "ItemA"))
             .Returns(new DiscountRule(["ItemA", "ItemA"], 5));
-        A.CallTo(() => _mockDiscountRuleRepository.GetBestMatchingRule("ItemA", "ItemA", "ItemB"))
-            .Returns(new DiscountRule(["ItemA", "ItemA"], 5));
+        
         A.CallTo(() => _mockDiscountRuleRepository.GetBestMatchingRule("ItemC", "ItemC", "ItemC"))
             .Returns(new DiscountRule(["ItemC", "ItemC", "ItemC"], 20));
+        
     }
     
     [Theory]
@@ -82,13 +82,36 @@ public class CheckoutUnitTests
     }
 
     [Theory]
-                //Expected Cost | For Items
+    
+  
+    //Expected Cost | For Items
     [InlineData(  8, "ItemA", "ItemB")]
-    [InlineData(  10, "ItemA", "ItemA", "ItemB")]
-    public void BasketCostAmount_WhenMixOfDiscountsAndItems_DiscountIsApplied(int expectedCost, params string[] items)
+    [InlineData(  15, "ItemA", "ItemB", "ItemC")] //itemA discount + ItemB
+    [InlineData(  53, "ItemB", "ItemC", "ItemC", "ItemB", "ItemA")] //ItemC duscount + ItemB
+    public void BasketCostAmount_WhenMixItems_SumIsCorrect(int expectedCost, params string[] items)
     {
         //arrange
         var checkout = new Checkout.Checkout(_mockItemRepository, _mockDiscountRuleRepository);
+        
+        //act
+        var cost = checkout.BasketCost(items);
+        
+        //assert
+        Assert.Equal(expectedCost, cost);
+    }
+    
+                           //Expected Cost | For Items
+    [InlineData(  10, "ItemA", "ItemA", "ItemB")] //itemA discount + ItemB
+
+    public void BasketCostAmount_WhenMixOfItemADiscountAndItems_DiscountIsAppliedAndAddedToSum(int expectedCost, params string[] items)
+    {
+        //arrange
+        var checkout = new Checkout.Checkout(_mockItemRepository, _mockDiscountRuleRepository);
+        
+        //special rules (note we could use matching aboeat some point)
+        A.CallTo(() => _mockDiscountRuleRepository.GetBestMatchingRule(items))
+            .Returns(new DiscountRule(["ItemA", "ItemA"], 5));
+
         
         //act
         var cost = checkout.BasketCost(items);
