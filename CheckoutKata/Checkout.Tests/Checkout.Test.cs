@@ -1,4 +1,6 @@
-﻿namespace CheckoutKata;
+﻿using Checkout;
+
+namespace CheckoutKata;
 
 // The customer has requested a supermarket checkout system
 // Used to calculate basket totals
@@ -23,7 +25,7 @@ public class CheckoutUnitTests
     public void ItemCostAmount(string item, int expectedCost)
     {
         //arrange
-        var checkout = new Checkout.Checkout();
+        var checkout = new Checkout.Checkout(new ItemRepository());
         
         //act
         var cost = checkout.BasketCost(item);

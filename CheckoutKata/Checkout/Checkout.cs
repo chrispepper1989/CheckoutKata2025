@@ -1,8 +1,17 @@
 ﻿namespace Checkout;
 
-public class Checkout
+public class Checkout(ItemRepository itemRepository)
 {
     public int BasketCost(string item)
+    {
+        return itemRepository.GetCost(item);
+        
+    }
+}
+
+public class ItemRepository
+{
+    public int GetCost(string item)
     {
         return item switch
         {
