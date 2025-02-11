@@ -33,6 +33,8 @@ public class CheckoutUnitTests
         _mockDiscountRuleRepository = A.Fake<IDiscountRuleRepository>();
         A.CallTo(() => _mockDiscountRuleRepository.GetBestMatchingRule("ItemA", "ItemA"))
             .Returns(new DiscountRule(["ItemA", "ItemA"], 5));
+        A.CallTo(() => _mockDiscountRuleRepository.GetBestMatchingRule("ItemA", "ItemA", "ItemB"))
+            .Returns(new DiscountRule(["ItemA", "ItemA"], 5));
         A.CallTo(() => _mockDiscountRuleRepository.GetBestMatchingRule("ItemC", "ItemC", "ItemC"))
             .Returns(new DiscountRule(["ItemC", "ItemC", "ItemC"], 20));
     }
