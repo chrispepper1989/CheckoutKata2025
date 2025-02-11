@@ -33,6 +33,8 @@ public class CheckoutUnitTests
         _mockDiscountRuleRepository = A.Fake<IDiscountRuleRepository>();
         A.CallTo(() => _mockDiscountRuleRepository.GetBestMatchingRule("ItemA", "ItemA"))
             .Returns(new DiscountRule(["ItemA", "ItemA"], 5));
+        A.CallTo(() => _mockDiscountRuleRepository.GetBestMatchingRule("ItemC", "ItemC", "ItemC"))
+            .Returns(new DiscountRule(["ItemC", "ItemC", "ItemC"], 20));
     }
     
     [Theory]
@@ -62,6 +64,19 @@ public class CheckoutUnitTests
         
         //assert
         Assert.Equal(5, cost);
+    }
+    
+    [Fact]
+    public void ItemCostAmount_WhenThereAreThreeCs_DiscountIsApplied()
+    {
+        //arrange
+        var checkout = new Checkout.Checkout(_mockItemRepository, _mockDiscountRuleRepository);
+        
+        //act
+        var cost = checkout.BasketCost("ItemC", "ItemC", "ItemC");
+        
+        //assert
+        Assert.Equal(20, cost);
     }
 }
 
