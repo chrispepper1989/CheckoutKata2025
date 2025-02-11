@@ -37,11 +37,11 @@ public class CheckoutUnitTests
         
         //arrange discount repo
         _mockDiscountRuleRepository = A.Fake<IDiscountRuleRepository>();
-        A.CallTo(() => _mockDiscountRuleRepository.GetBestMatchingRule("ItemA", "ItemA"))
-            .Returns(new DiscountRule(["ItemA", "ItemA"], 5));
+        A.CallTo(() => _mockDiscountRuleRepository.GetAllDiscountRules("ItemA", "ItemA"))
+            .Returns([ new DiscountRule(["ItemA", "ItemA"], 5)]);
         
-        A.CallTo(() => _mockDiscountRuleRepository.GetBestMatchingRule("ItemC", "ItemC", "ItemC"))
-            .Returns(new DiscountRule(["ItemC", "ItemC", "ItemC"], 20));
+        A.CallTo(() => _mockDiscountRuleRepository.GetAllDiscountRules("ItemC", "ItemC", "ItemC"))
+            .Returns([new DiscountRule(["ItemC", "ItemC", "ItemC"], 20)]);
         
     }
     
@@ -124,8 +124,8 @@ public class CheckoutUnitTests
         var checkout = new Checkout.Checkout(_mockItemRepository, _mockDiscountRuleRepository);
         
         //special rules (note we could use matching aboeat some point)
-        A.CallTo(() => _mockDiscountRuleRepository.GetBestMatchingRule(items))
-            .Returns(new DiscountRule(["ItemA", "ItemA"], 5));
+        A.CallTo(() => _mockDiscountRuleRepository.GetAllDiscountRules(items))
+            .Returns([new DiscountRule(["ItemA", "ItemA"], 5)]);
         
         //act
         var cost = checkout.BasketCost(items);
@@ -143,11 +143,11 @@ public class CheckoutUnitTests
         var checkout = new Checkout.Checkout(_mockItemRepository, _mockDiscountRuleRepository);
         
         //special rules (note we could use matching at some some point)
-        A.CallTo(() => _mockDiscountRuleRepository.GetBestMatchingRule(items))
-            .Returns(new DiscountRule(["ItemA", "ItemA"], 5));
-        A.CallTo(() => _mockDiscountRuleRepository.GetBestMatchingRule(items))
-            .Returns(new DiscountRule(["ItemC", "ItemC", "ItemC"], 20));
-        
+        A.CallTo(() => _mockDiscountRuleRepository.GetAllDiscountRules(items))
+            .Returns(
+                [new DiscountRule(["ItemA", "ItemA"], 5),
+                new DiscountRule(["ItemC", "ItemC", "ItemC"], 20)]);
+     
         //act
         var cost = checkout.BasketCost(items);
         

@@ -4,6 +4,6 @@ public record DiscountRule(string[] ItemsProcessed, int CostToAdd);
 
 public interface IDiscountRuleRepository
 {
-    DiscountRule GetBestMatchingRule(params string[] items);
+    IEnumerable<DiscountRule> GetAllDiscountRules(params string[] items);
     
 }
