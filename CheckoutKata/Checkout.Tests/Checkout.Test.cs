@@ -78,6 +78,21 @@ public class CheckoutUnitTests
         //assert
         Assert.Equal(20, cost);
     }
+
+    [Theory]
+                //Expected Cost | For Items
+    [InlineData(  8, "ItemA", "ItemB")]
+    public void BasketCostAmount_WhenMixOfDiscountsAndItems_DiscountIsApplied(int expectedCost, params string[] items)
+    {
+        //arrange
+        var checkout = new Checkout.Checkout(_mockItemRepository, _mockDiscountRuleRepository);
+        
+        //act
+        var cost = checkout.BasketCost(items);
+        
+        //assert
+        Assert.Equal(expectedCost, cost);
+    }
 }
 
 
