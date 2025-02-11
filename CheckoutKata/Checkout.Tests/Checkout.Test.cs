@@ -82,8 +82,6 @@ public class CheckoutUnitTests
     }
 
     [Theory]
-    
-  
     //Expected Cost | For Items
     [InlineData(  8, "ItemA", "ItemB")]
     [InlineData(  15, "ItemA", "ItemB", "ItemC")] 
@@ -100,9 +98,20 @@ public class CheckoutUnitTests
         Assert.Equal(expectedCost, cost);
     }
     
-                           //Expected Cost | For Items
-    [InlineData(  10, "ItemA", "ItemA", "ItemB")] //itemA discount + ItemB
+          
+    
+    // Item A cost 3
+    // Item B cost 5
+    // Item C cost 7
+    //
+    // Special discounts:
+    // 2 x A for 5
 
+    [Theory]
+    //Expected Cost | For Items
+    [InlineData(  10, "ItemA", "ItemA", "ItemB")] //itemA discount + ItemB
+    [InlineData(  22, "ItemA", "ItemA", "ItemB", "ItemB", "ItemC")] 
+    [InlineData(  8, "ItemA", "ItemA", "ItemA")] // itemA discount with an extra A
     public void BasketCostAmount_WhenMixOfItemADiscountAndItems_DiscountIsAppliedAndAddedToSum(int expectedCost, params string[] items)
     {
         //arrange
@@ -111,7 +120,6 @@ public class CheckoutUnitTests
         //special rules (note we could use matching aboeat some point)
         A.CallTo(() => _mockDiscountRuleRepository.GetBestMatchingRule(items))
             .Returns(new DiscountRule(["ItemA", "ItemA"], 5));
-
         
         //act
         var cost = checkout.BasketCost(items);
