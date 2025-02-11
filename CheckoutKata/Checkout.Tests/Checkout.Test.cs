@@ -18,6 +18,8 @@ public class CheckoutUnitTests
 {
     [Theory]
     [InlineData("ItemA", 3)]
+    [InlineData("ItemB", 5)]
+    [InlineData("ItemC", 7)]
     public void ItemCostAmount(string item, int expectedCost)
     {
         //arrange
