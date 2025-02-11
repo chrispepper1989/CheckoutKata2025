@@ -2,9 +2,9 @@
 
 public class Checkout(IItemRepository itemRepository)
 {
-    public int BasketCost(params string[] item)
+    public int BasketCost(params string[] items)
     {
-        return itemRepository.GetCost(item.First());
+        return items.Sum(itemRepository.GetCost);
         
     }
 }

@@ -56,7 +56,6 @@ public class CheckoutUnitTests
         
         //assert
         Assert.Equal(5, cost);
-        
     }
 }
 
