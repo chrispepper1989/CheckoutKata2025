@@ -14,14 +14,11 @@ public class Checkout(IItemRepository itemRepository,IDiscountRuleRepository dis
 
 public interface IDiscountRuleRepository
 {
-    IDiscountRule GetBestMatchingRule(params string[] items);
+    DiscountRule GetBestMatchingRule(params string[] items);
 }
 
-public interface IDiscountRule
-{
-    string[] ItemsProcessed { get; }
-    int CostToAdd { get; }
-}
+public record DiscountRule(string[] ItemsProcessed, int CostToAdd);
+
 
 public interface IItemRepository
 {

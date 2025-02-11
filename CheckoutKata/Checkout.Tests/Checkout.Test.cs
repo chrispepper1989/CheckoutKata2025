@@ -31,6 +31,8 @@ public class CheckoutUnitTests
         
         //arrange discount repo
         _mockDiscountRuleRepository = A.Fake<IDiscountRuleRepository>();
+        A.CallTo(() => _mockDiscountRuleRepository.GetBestMatchingRule("ItemA", "ItemA"))
+            .Returns(new DiscountRule(["ItemA", "ItemA"], 5));
     }
     
     [Theory]
