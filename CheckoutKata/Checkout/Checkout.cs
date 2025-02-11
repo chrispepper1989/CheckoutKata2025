@@ -22,15 +22,3 @@ public class Checkout(IItemRepository itemRepository,IDiscountRuleRepository dis
     }
 }
 
-public interface IDiscountRuleRepository
-{
-    DiscountRule GetBestMatchingRule(params string[] items);
-}
-
-public record DiscountRule(string[] ItemsProcessed, int CostToAdd);
-
-
-public interface IItemRepository
-{
-    int GetCost(string item);
-}
