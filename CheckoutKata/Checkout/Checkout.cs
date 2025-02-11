@@ -4,6 +4,12 @@ public class Checkout
 {
     public int BasketCost(string item)
     {
-        return 3;
+        return item switch
+        {
+            "ItemA" => 3,
+            "ItemB" => 5,
+            "ItemC" => 7,
+            _ => 0
+        };
     }
 }
