@@ -20,13 +20,17 @@ namespace CheckoutKata;
 public class CheckoutUnitTests
 {
     private IItemRepository _mockItemRepository;
-
+    private IDiscountRuleRepository _mockDiscountRuleRepository;
     public CheckoutUnitTests()
     {
+        //arrange itemRepo
         _mockItemRepository = A.Fake<IItemRepository>();
         A.CallTo(() => _mockItemRepository.GetCost("ItemA")).Returns(3);
         A.CallTo(() => _mockItemRepository.GetCost("ItemB")).Returns(5);
         A.CallTo(() => _mockItemRepository.GetCost("ItemC")).Returns(7);
+        
+        //arrange discount repo
+        _mockDiscountRuleRepository = A.Fake<IDiscountRuleRepository>();
     }
     
     [Theory]
@@ -36,7 +40,7 @@ public class CheckoutUnitTests
     public void ItemCostAmount_WhenNoSpecialOffers(string item, int expectedCost)
     {
         //arrange
-        var checkout = new Checkout.Checkout(_mockItemRepository);
+        var checkout = new Checkout.Checkout(_mockItemRepository, _mockDiscountRuleRepository);
         
         //act
         var cost = checkout.BasketCost(item);
@@ -49,7 +53,7 @@ public class CheckoutUnitTests
     public void ItemCostAmount_WhenThereAreTwoAs_DiscountIsApplied()
     {
         //arrange
-        var checkout = new Checkout.Checkout(_mockItemRepository);
+        var checkout = new Checkout.Checkout(_mockItemRepository, _mockDiscountRuleRepository);
         
         //act
         var cost = checkout.BasketCost("ItemA", "ItemA");
