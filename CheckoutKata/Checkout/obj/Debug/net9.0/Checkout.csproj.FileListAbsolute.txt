@@ -1,0 +1,15 @@
+C:\Users\Archer\dev\CheckoutKata2025\CheckoutKata\Checkout\bin\Debug\net9.0\Checkout.exe
+C:\Users\Archer\dev\CheckoutKata2025\CheckoutKata\Checkout\bin\Debug\net9.0\Checkout.deps.json
+C:\Users\Archer\dev\CheckoutKata2025\CheckoutKata\Checkout\bin\Debug\net9.0\Checkout.runtimeconfig.json
+C:\Users\Archer\dev\CheckoutKata2025\CheckoutKata\Checkout\bin\Debug\net9.0\Checkout.dll
+C:\Users\Archer\dev\CheckoutKata2025\CheckoutKata\Checkout\bin\Debug\net9.0\Checkout.pdb
+C:\Users\Archer\dev\CheckoutKata2025\CheckoutKata\Checkout\obj\Debug\net9.0\Checkout.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Archer\dev\CheckoutKata2025\CheckoutKata\Checkout\obj\Debug\net9.0\Checkout.AssemblyInfoInputs.cache
+C:\Users\Archer\dev\CheckoutKata2025\CheckoutKata\Checkout\obj\Debug\net9.0\Checkout.AssemblyInfo.cs
+C:\Users\Archer\dev\CheckoutKata2025\CheckoutKata\Checkout\obj\Debug\net9.0\Checkout.csproj.CoreCompileInputs.cache
+C:\Users\Archer\dev\CheckoutKata2025\CheckoutKata\Checkout\obj\Debug\net9.0\Checkout.sourcelink.json
+C:\Users\Archer\dev\CheckoutKata2025\CheckoutKata\Checkout\obj\Debug\net9.0\Checkout.dll
+C:\Users\Archer\dev\CheckoutKata2025\CheckoutKata\Checkout\obj\Debug\net9.0\refint\Checkout.dll
+C:\Users\Archer\dev\CheckoutKata2025\CheckoutKata\Checkout\obj\Debug\net9.0\Checkout.pdb
+C:\Users\Archer\dev\CheckoutKata2025\CheckoutKata\Checkout\obj\Debug\net9.0\Checkout.genruntimeconfig.cache
+C:\Users\Archer\dev\CheckoutKata2025\CheckoutKata\Checkout\obj\Debug\net9.0\ref\Checkout.dll
