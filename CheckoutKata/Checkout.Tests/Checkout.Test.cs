@@ -82,6 +82,7 @@ public class CheckoutUnitTests
     [Theory]
                 //Expected Cost | For Items
     [InlineData(  8, "ItemA", "ItemB")]
+    [InlineData(  10, "ItemA", "ItemA", "ItemB")]
     public void BasketCostAmount_WhenMixOfDiscountsAndItems_DiscountIsApplied(int expectedCost, params string[] items)
     {
         //arrange
