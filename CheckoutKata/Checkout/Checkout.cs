@@ -1,6 +1,6 @@
 ﻿namespace Checkout;
 
-public class Checkout(ItemRepository itemRepository)
+public class Checkout(IItemRepository itemRepository)
 {
     public int BasketCost(string item)
     {
@@ -9,16 +9,7 @@ public class Checkout(ItemRepository itemRepository)
     }
 }
 
-public class ItemRepository
+public interface IItemRepository
 {
-    public int GetCost(string item)
-    {
-        return item switch
-        {
-            "ItemA" => 3,
-            "ItemB" => 5,
-            "ItemC" => 7,
-            _ => 0
-        };
-    }
+    int GetCost(string item);
 }

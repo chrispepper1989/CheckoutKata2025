@@ -1,4 +1,5 @@
 ﻿using Checkout;
+using FakeItEasy;
 
 namespace CheckoutKata;
 
@@ -18,6 +19,16 @@ namespace CheckoutKata;
 
 public class CheckoutUnitTests
 {
+    private IItemRepository _mockItemRepository;
+
+    public CheckoutUnitTests()
+    {
+        _mockItemRepository = A.Fake<IItemRepository>();
+        A.CallTo(() => _mockItemRepository.GetCost("ItemA")).Returns(3);
+        A.CallTo(() => _mockItemRepository.GetCost("ItemB")).Returns(5);
+        A.CallTo(() => _mockItemRepository.GetCost("ItemC")).Returns(7);
+    }
+    
     [Theory]
     [InlineData("ItemA", 3)]
     [InlineData("ItemB", 5)]
@@ -25,7 +36,7 @@ public class CheckoutUnitTests
     public void ItemCostAmount(string item, int expectedCost)
     {
         //arrange
-        var checkout = new Checkout.Checkout(new ItemRepository());
+        var checkout = new Checkout.Checkout(_mockItemRepository);
         
         //act
         var cost = checkout.BasketCost(item);

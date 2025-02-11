@@ -13,3 +13,10 @@ C:\Users\Archer\dev\CheckoutKata2025\CheckoutKata\Checkout\obj\Debug\net9.0\refi
 C:\Users\Archer\dev\CheckoutKata2025\CheckoutKata\Checkout\obj\Debug\net9.0\Checkout.pdb
 C:\Users\Archer\dev\CheckoutKata2025\CheckoutKata\Checkout\obj\Debug\net9.0\Checkout.genruntimeconfig.cache
 C:\Users\Archer\dev\CheckoutKata2025\CheckoutKata\Checkout\obj\Debug\net9.0\ref\Checkout.dll
+C:\Users\Archer\dev\CheckoutKata2025\CheckoutKata\Checkout\bin\Debug\net9.0\Castle.Core.dll
+C:\Users\Archer\dev\CheckoutKata2025\CheckoutKata\Checkout\bin\Debug\net9.0\FakeItEasy.dll
+C:\Users\Archer\dev\CheckoutKata2025\CheckoutKata\Checkout\bin\Debug\net9.0\System.Diagnostics.EventLog.dll
+C:\Users\Archer\dev\CheckoutKata2025\CheckoutKata\Checkout\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Diagnostics.EventLog.Messages.dll
+C:\Users\Archer\dev\CheckoutKata2025\CheckoutKata\Checkout\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Diagnostics.EventLog.dll
+C:\Users\Archer\dev\CheckoutKata2025\CheckoutKata\Checkout\obj\Debug\net9.0\Checkout.csproj.AssemblyReference.cache
+C:\Users\Archer\dev\CheckoutKata2025\CheckoutKata\Checkout\obj\Debug\net9.0\Checkout.csproj.Up2Date

@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "rbKMvAqrxuk=",
+  "dgSpecHash": "PnSh2mYW0Io=",
   "success": true,
   "projectFilePath": "C:\\Users\\Archer\\dev\\CheckoutKata2025\\CheckoutKata\\Checkout\\Checkout.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Archer\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
+    "C:\\Users\\Archer\\.nuget\\packages\\fakeiteasy\\8.3.0\\fakeiteasy.8.3.0.nupkg.sha512",
+    "C:\\Users\\Archer\\.nuget\\packages\\system.diagnostics.eventlog\\6.0.0\\system.diagnostics.eventlog.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

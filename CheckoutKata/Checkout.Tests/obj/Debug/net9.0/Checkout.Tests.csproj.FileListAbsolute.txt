@@ -104,3 +104,8 @@ C:\Users\Archer\dev\CheckoutKata2025\CheckoutKata\Checkout.Tests\obj\Debug\net9.
 C:\Users\Archer\dev\CheckoutKata2025\CheckoutKata\Checkout.Tests\obj\Debug\net9.0\Checkout.Tests.pdb
 C:\Users\Archer\dev\CheckoutKata2025\CheckoutKata\Checkout.Tests\obj\Debug\net9.0\Checkout.Tests.genruntimeconfig.cache
 C:\Users\Archer\dev\CheckoutKata2025\CheckoutKata\Checkout.Tests\obj\Debug\net9.0\ref\Checkout.Tests.dll
+C:\Users\Archer\dev\CheckoutKata2025\CheckoutKata\Checkout.Tests\bin\Debug\net9.0\Castle.Core.dll
+C:\Users\Archer\dev\CheckoutKata2025\CheckoutKata\Checkout.Tests\bin\Debug\net9.0\FakeItEasy.dll
+C:\Users\Archer\dev\CheckoutKata2025\CheckoutKata\Checkout.Tests\bin\Debug\net9.0\System.Diagnostics.EventLog.dll
+C:\Users\Archer\dev\CheckoutKata2025\CheckoutKata\Checkout.Tests\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Diagnostics.EventLog.Messages.dll
+C:\Users\Archer\dev\CheckoutKata2025\CheckoutKata\Checkout.Tests\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Diagnostics.EventLog.dll
