@@ -17,6 +17,12 @@ namespace CheckoutKata;
 //
 // 50% off all baskets on Fridays
 
+/*  Chris Notes:
+ *  ------------
+ *  This is fun so I will probably contine, some thoughts on what would happen next
+ *  - 50% off all baskets on Fridays: This will expand the IDiscountRule in a way that requires "global" rules it will be interesting
+
+ */
 public class CheckoutUnitTests
 {
     private IItemRepository _mockItemRepository;
@@ -120,6 +126,27 @@ public class CheckoutUnitTests
         //special rules (note we could use matching aboeat some point)
         A.CallTo(() => _mockDiscountRuleRepository.GetBestMatchingRule(items))
             .Returns(new DiscountRule(["ItemA", "ItemA"], 5));
+        
+        //act
+        var cost = checkout.BasketCost(items);
+        
+        //assert
+        Assert.Equal(expectedCost, cost);
+    }
+    
+    [Theory]
+    //Expected Cost | For Items
+    [InlineData(  25, "ItemA", "ItemA", "ItemC", "ItemC", "ItemC")] 
+    public void BasketCostAmount_WhenBothItemAAndItemCDiscountIsPresent_AddsBoth(int expectedCost, params string[] items)
+    {
+        //arrange
+        var checkout = new Checkout.Checkout(_mockItemRepository, _mockDiscountRuleRepository);
+        
+        //special rules (note we could use matching at some some point)
+        A.CallTo(() => _mockDiscountRuleRepository.GetBestMatchingRule(items))
+            .Returns(new DiscountRule(["ItemA", "ItemA"], 5));
+        A.CallTo(() => _mockDiscountRuleRepository.GetBestMatchingRule(items))
+            .Returns(new DiscountRule(["ItemC", "ItemC", "ItemC"], 20));
         
         //act
         var cost = checkout.BasketCost(items);
