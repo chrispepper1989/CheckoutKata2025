@@ -86,8 +86,8 @@ public class CheckoutUnitTests
   
     //Expected Cost | For Items
     [InlineData(  8, "ItemA", "ItemB")]
-    [InlineData(  15, "ItemA", "ItemB", "ItemC")] //itemA discount + ItemB
-    [InlineData(  53, "ItemB", "ItemC", "ItemC", "ItemB", "ItemA")] //ItemC duscount + ItemB
+    [InlineData(  15, "ItemA", "ItemB", "ItemC")] 
+    [InlineData(  27, "ItemB", "ItemC", "ItemC", "ItemB", "ItemA")] 
     public void BasketCostAmount_WhenMixItems_SumIsCorrect(int expectedCost, params string[] items)
     {
         //arrange
