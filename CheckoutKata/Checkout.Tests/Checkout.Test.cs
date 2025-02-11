@@ -33,7 +33,7 @@ public class CheckoutUnitTests
     [InlineData("ItemA", 3)]
     [InlineData("ItemB", 5)]
     [InlineData("ItemC", 7)]
-    public void ItemCostAmount(string item, int expectedCost)
+    public void ItemCostAmount_WhenNoSpecialOffers(string item, int expectedCost)
     {
         //arrange
         var checkout = new Checkout.Checkout(_mockItemRepository);
@@ -43,6 +43,20 @@ public class CheckoutUnitTests
         
         //assert
         Assert.Equal(expectedCost, cost);   
+    }
+
+    [Fact]
+    public void ItemCostAmount_WhenThereAreTwoAs_DiscountIsApplied()
+    {
+        //arrange
+        var checkout = new Checkout.Checkout(_mockItemRepository);
+        
+        //act
+        var cost = checkout.BasketCost("ItemA", "ItemA");
+        
+        //assert
+        Assert.Equal(5, cost);
+        
     }
 }
 
